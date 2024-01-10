@@ -163,8 +163,8 @@ void iniciarJogoPalavrasCruzadas(ArvBin *av, struct Palavra *palavras, char grad
           jogarPalavraNaGrade(procurarNaArvore, grade, palavrasEncontradas);
         printf("\t\t\t\t▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n");
         printf("Palavra encontrada: %s, Dica: %s, ", palavraEncontrada.palavra,
-                 dicaEncontrada); // Troquei a struct para a qual chamamos no
-                                  // início e resolveu o problema
+                 dicaEncontrada); // Troquei a struct para a qual chamamos no início
+                                  
           palavrasEncontradas++;
           tentativa++;
           
@@ -214,7 +214,7 @@ void escolherPalavras(ArvBin *av, struct Palavra *palavras, char grade[LINHAS][C
   }
   switch (*carregado) {
   case 1:
-    // numPalavras = 0;
+
     palavras = (struct Palavra[]){
         {"CASA", "C_S_"},     {"QUARTO", "Q__RT_"}, {"ESCOLA", "E__OLA"},
         {"BRASIL", "__A_IL"}, {"AVIAO", "_VIA_"},   {""},
