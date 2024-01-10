@@ -1,0 +1,26 @@
+{
+  "files": {
+    "src/Projeto.c": [
+      {
+        "id": "10387077-37c7-4852-9ffa-06a96ac78a52",
+        "line": 294,
+        "version": 1,
+        "index": 8618
+      },
+      {
+        "id": "056dd638-b63c-4006-86ba-23d5861a2737",
+        "line": 312,
+        "version": 1,
+        "index": 9231
+      }
+    ],
+    "src/projeto.c": [
+      {
+        "id": "fa73a945-0bf7-4143-9268-feac49877aef",
+        "line": 392,
+        "version": 5437,
+        "index": 10293
+      }
+    ]
+  }
+}
