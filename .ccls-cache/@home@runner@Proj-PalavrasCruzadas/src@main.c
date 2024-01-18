@@ -1,10 +1,7 @@
 #include "../includes/Projeto.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 int main(void) {
-//jogocarregado -> para verificar ser o jogo que será gerado já foi jogado eliminando a pergunta do nível desejado
+  //Variáveis principais
   int opcao, palavrasEncontradas = 0, tentativa = 0, numPalavras = 6, nivel = 0;
   int numJogadores = 1;
   char nomeArquivo[] = "data/jogoAtual.txt";
@@ -22,7 +19,7 @@ int main(void) {
   struct Palavra palavras[] = {
       {"\0", "\0"},
   };
-  //ESCOLA, QUARTO, CASA, BRASIL = forma CASA
+  //Cruzamento de palavra sequência: ESCOLA, QUARTO, CASA e BRASIL. Forma CASA
 
 
   do {
