@@ -54,9 +54,20 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 
   for (int i = 0; i < linha; i++) {
     for (int j = 0; j < coluna; j++) {
-      grade[i][j] = '\0';
+      grade[i][j] = '-';
     }
   }
+}
+
+//FUNCAO QUE JOGA AS PALAVRAS QUE FORAM ENCONTRADAS NA GRADE
+//MODIFICAÇÕES NECESSÁRIAS PARA PODEMOS REALIZAR O CRUAMENTO DE PALAVRA CRUZADAS
+void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
+  int tamanhodapalavra = strlen(palavra);
+  for (int i = 0; i < tamanhodapalavra; i++) {
+      
+      grade[palavraencontrada][i] = palavra[i];
+  }
+  return;
 }
 
 //EXIBE A GRADE COM AS PALAVRAS DA LISTA
@@ -76,16 +87,6 @@ void exibirgrade(char grade[][COLUNAS]){
     }
     printf("\n");
   }
-}
-
-//FUNCAO QUE JOGA AS PALAVRAS QUE FORAM ENCONTRADAS NA GRADE
-void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
-  int tamanhodapalavra = strlen(palavra);
-  for (int i = 0; i < tamanhodapalavra; i++) {
-      
-      grade[palavraencontrada][i] = palavra[i];
-  }
-  return;
 }
 
 //FUNCAO PRINCIPAL QUE INICIA O JOGO DE PALAVRAS CRUZADAS

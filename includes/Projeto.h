@@ -7,11 +7,8 @@
 #define MAX_TAMANHO_PALAVRA 20
 #define MAX_TAMANHO_DICA 20
 //GRADE OU TABELA DA PALAVRAS CRUZADAS
-#define MAX_TAMANHO_TABELA 50
-#define MAX_GRADE 20
 #define LINHAS 8
 #define COLUNAS 8
-//char tabela[LINHAS][COLUNAS]; Problema com a variável 
 
 //STRUCT PALAVRA
 struct Palavra {
@@ -40,14 +37,7 @@ struct Palavra* palavraAssociada;
 struct Jogador {
     struct NoArvore* raizArvore;
 };
-//STRUCTS PARA GRADE DAS PALAVRAS CRUZADAS
-struct grade_tabela{
-  char palavra[MAX_TAMANHO_TABELA];
-  int linha;
-  int colunas;
-  char direcao; //'H' oara horizontal, 'V' para vertical
-  
-};
+
 //LISTA
 
 typedef struct elemento* Lista;
