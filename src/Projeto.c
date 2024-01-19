@@ -62,6 +62,9 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 //FUNCAO QUE JOGA AS PALAVRAS QUE FORAM ENCONTRADAS NA GRADE
 //MODIFICAÇÕES NECESSÁRIAS PARA PODEMOS REALIZAR O CRUAMENTO DE PALAVRA CRUZADAS
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
+  //Recebendo o tamanho total da palavra
+
+  // Estapas Lógica para realizar o cruzamento 
   int tamanhodapalavra = strlen(palavra);
   for (int i = 0; i < tamanhodapalavra; i++) {
       
