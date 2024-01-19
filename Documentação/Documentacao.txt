@@ -1,0 +1,19 @@
+1 - Explicação do projeto
+
+2 - Métodos utilizado e tecnologia utilizado e o por quê?
+
+3 - Desafios enfrentado no desenvolvimento
+
+4 - Etapas de melhoria Melhorias
+  4.1 Grade
+    Lógica para o cruzamento das palavras que foram descoberto pelo usuário
+    
+  4.2 Melhoria na instrução ao usuário
+
+  4.3 Melhoria nas dicas dados ao usuário
+
+  4.4 Refatoramento do código
+    eliminando comentário e tudo que não estar sendo utilizado.
+
+  4.5 Criação de uma página no github ou no próprio projeto
+    explicando o jogo detalhadamente, como jogar e como utilizar a IDE ONLINE, etc...
