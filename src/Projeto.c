@@ -64,12 +64,21 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
   //Recebendo o tamanho total da palavra
 
-  // Estapas Lógica para realizar o cruzamento 
-  int tamanhodapalavra = strlen(palavra);
-  for (int i = 0; i < tamanhodapalavra; i++) {
-      
-      grade[palavraencontrada][i] = palavra[i];
+  // Etapas Lógica para realizar o cruzamento 
+  int tamanhodapalavra = strlen(palavra), verificar_letras = 0,posicao[2];
+  for (int coluna_atual = 0; coluna_atual < COLUNAS; coluna_atual++) {
+      for(int linha_atual = 0; linha_atual < LINHAS; linha_atual++){
+        if(grade[linha_atual][coluna_atual] != "-" || strcmp(palavra[verificar_letras], grade[linha_atual][coluna_atual]) == 0){
+          posicao[0] = linha_atual;
+          posicao[1] = coluna_atual;
+        }else{
+          grade[palavraencontrada][linha_atual] = palavra[linha_atual];
+        }
+        verificar_letras ++;
+      }
+      verificar_letras = 0;
   }
+  
   return;
 }
 
