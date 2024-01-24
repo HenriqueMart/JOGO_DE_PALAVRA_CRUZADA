@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 //MENU QUE È USADO NO DECORRER DO JOGO
 int MENU(ArvBin raiz, Lista encontrados, int numPalavras, int palavrasEncontradas, int tentativa,
@@ -64,18 +65,41 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
   // Etapas Lógica para realizar o cruzamento 
   //Variável, tamanho total da palavra.
-  int tamanhodapalavra = strlen(palavra);
+  int tamanhodapalavra = strlen(palavra), sorteio = 0, indice = 0;
 
   //Lógica da grade
-  //Realizando um sorteio
-
+  
+  
+  
   // Verificar se tem palavra na matriz caso não adicione a primeira
 
   // Caso tenha, verifica ser alguma letra possa cruzar com outra letra
 
   //Lógica para adicionar palavra em sequência, primeira lógica implementada.
+
+  //lógica para procurar todas as palavras da grade, e comparar suas caractere
+  if(palavraencontrada != 0){
+    for(int coluna = 0; coluna < 8; coluna ++){
+      for(int linha = 0; linha < 8; linha ++){
+        if(grade[coluna][linha] != '-'{
+          //Lógica para verificar caractere da palavra que será lançada na grade
+          for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
+            /*if(strcmp(grade[coluna][linha], palavra[indice]) == 0))
+            printf("Funcinou!! GRADE[%d][%d]\n", coluna, linha);
+            getchar();
+            getchar();*/
+          }
+        }
+      }
+    }
+    
+  }else{
+    //Realizando o sorteio
+    sorteio = rand()%8;
+  }
+  
     for(int i = 0; i < tamanhodapalavra; i++){
-      grade[palavraencontrada][i] = palavra[i];
+      grade[sorteio][i] = palavra[i];
     }
   return;
 }
