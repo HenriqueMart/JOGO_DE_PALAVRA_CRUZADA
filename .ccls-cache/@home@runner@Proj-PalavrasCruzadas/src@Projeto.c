@@ -63,10 +63,12 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 //MODIFICAÇÕES NECESSÁRIAS PARA PODEMOS REALIZAR O CRUAMENTO DE PALAVRA CRUZADAS
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
   // Etapas Lógica para realizar o cruzamento 
-  //Variável, tamanho total da palavra, verificadando cada caractere,  posição que a letra foi salva sendo um vetor de 3 posição
-  int tamanhodapalavra = strlen(palavra), verificar_letras = 0, posicaolinha = 0, posicaocoluna = 0;
-
+  //Variável, tamanho total da palavra.
+  int tamanhodapalavra = strlen(palavra);
   
+  
+  
+  //Lógica para adicionar palavra em sequência, primeira lógica implementada.
     for(int i = 0; i < tamanhodapalavra; i++){
       grade[palavraencontrada][i] = palavra[i];
     }
