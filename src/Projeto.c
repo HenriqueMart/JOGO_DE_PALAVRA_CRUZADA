@@ -81,7 +81,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
   if(palavraencontrada != 0){
     for(int coluna = 0; coluna < 8; coluna ++){
       for(int linha = 0; linha < 8; linha ++){
-        if(grade[coluna][linha] != '-'{
+        if(grade[coluna][linha] != '-'){
           //Lógica para verificar caractere da palavra que será lançada na grade
           for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
             /*if(strcmp(grade[coluna][linha], palavra[indice]) == 0))
