@@ -69,25 +69,21 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
 
   //Lógica da grade
   
-  
-  
-  // Verificar se tem palavra na matriz caso não adicione a primeira
-
-  // Caso tenha, verifica ser alguma letra possa cruzar com outra letra
-
   //Lógica para adicionar palavra em sequência, primeira lógica implementada.
 
-  //lógica para procurar todas as palavras da grade, e comparar suas caractere
+  //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
   if(palavraencontrada != 0){
     for(int coluna = 0; coluna < 8; coluna ++){
       for(int linha = 0; linha < 8; linha ++){
         if(grade[coluna][linha] != '-'){
           //Lógica para verificar caractere da palavra que será lançada na grade
           for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
-            /*if(strcmp(grade[coluna][linha], palavra[indice]) == 0))
-            printf("Funcinou!! GRADE[%d][%d]\n", coluna, linha);
+             // Caso tenha, verifica ser alguma letra possa cruzar com outra letra
+            /*if(strcmp(grade[coluna][linha], palavra[linha_da_palavra]) == 0){
+            printf("Funcinou!! GRADE[%d][%d] e caractere %s\n", coluna, linha, palavra[indice]);
             getchar();
-            getchar();*/
+            getchar();
+            }*/
           }
         }
       }
@@ -95,8 +91,9 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     
   }else{
     //Realizando o sorteio
-    sorteio = rand()%8;
+    
   }
+  sorteio = rand()%8;
   
     for(int i = 0; i < tamanhodapalavra; i++){
       grade[sorteio][i] = palavra[i];
