@@ -65,9 +65,14 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
   // Etapas Lógica para realizar o cruzamento 
   //Variável, tamanho total da palavra.
   int tamanhodapalavra = strlen(palavra);
-  
-  
-  
+
+  //Lógica da grade
+  //Realizando um sorteio
+
+  // Verificar se tem palavra na matriz caso não adicione a primeira
+
+  // Caso tenha, verifica ser alguma letra possa cruzar com outra letra
+
   //Lógica para adicionar palavra em sequência, primeira lógica implementada.
     for(int i = 0; i < tamanhodapalavra; i++){
       grade[palavraencontrada][i] = palavra[i];
