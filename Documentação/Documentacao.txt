@@ -17,3 +17,5 @@
 
   4.5 Criação de uma página no github ou no próprio projeto
     explicando o jogo detalhadamente, como jogar e como utilizar a IDE ONLINE, etc...
+
+  5 - Problema no tratamento de dados na escola do nível do jogo

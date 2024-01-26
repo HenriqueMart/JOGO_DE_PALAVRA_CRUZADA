@@ -80,7 +80,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
           for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
             //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
             if(grade[coluna][linha] == palavra[linha_da_palavra]){
-              //printf("grade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+              printf("grade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
               break;
             }
           }
@@ -90,26 +90,48 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     
   }
   if(caractere_na_grade == 0){
-    //Comando para gerar número totalmente diferente do anterior
-    srand((unsigned)time(NULL));
-    //Realizando o sorteio da posição
-     sorteio = rand()%8;
-    //Sorteio da direção. 0 = Horizontal; 1 = vertical.
-    sorteio_direcao = rand()%2;
-    
-    
-  }
- 
-  if(sorteio_direcao == 1){
-    for(int i = 0; i < tamanhodapalavra; i++){
-      grade[i][sorteio] = palavra[i];
+    int k;
+      //Comando para gerar número totalmente diferente do anterior
+      srand((unsigned)time(NULL));
+      //Realizando o sorteio da posição
+       sorteio = rand()%8;
+      //Sorteio da direção. 0 = Horizontal; 1 = vertical.
+      sorteio_direcao = rand()%2;
+      //printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+
+    //Adiciona no vertical
+      if(sorteio_direcao == 1){
+        for(k = 0; k <= 1; k++){ 
+          for(int i = 0; i < tamanhodapalavra; i++){
+            if(grade[i][sorteio] != '-' && k == 0){
+              //printf("ERRO!\n");
+              break;
+            }
+            if(k == 1){
+              grade[i][sorteio] = palavra[i];
+            }
+          }
+          
+        }
+        //adiciona na horizontal
+      }else{
+        for(k = 0; k <= 1; k++){ 
+          for(int i = 0; i < tamanhodapalavra; i++){
+            if(grade[sorteio][i] != '-' && k == 0){
+              //printf("ERRO!\n");
+              break;
+            }
+            if(k == 1){
+            grade[sorteio][i] = palavra[i];
+            }
+          }
+        }
+        
+      }
+
     }
-  }else{
-    for(int i = 0; i < tamanhodapalavra; i++){
-      grade[sorteio][i] = palavra[i];
-    }
-  }
-    
+   
+
   return;
 }
 
