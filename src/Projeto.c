@@ -78,15 +78,19 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
         if(grade[coluna][linha] != '-'){
           //Lógica para verificar caractere da palavra que será lançada na grade
           for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
-             // Caso tenha, verifica ser alguma letra possa cruzar com outra letra
-            
+            //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
+            if(grade[coluna][linha] == palavra[linha_da_palavra]){
+              //printf("grade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+              break;
+            }
           }
         }
       }
     }
     
   }
-  if(caractere_na_grade == 0){ 
+  if(caractere_na_grade == 0){
+
     //Realizando o sorteio
      sorteio = rand()%8;
   }
