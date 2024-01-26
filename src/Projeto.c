@@ -65,7 +65,7 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
   // Etapas Lógica para realizar o cruzamento 
   //Variável, tamanho total da palavra.
-  int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0, indice = 0, caractere_na_grade = 0;
+  int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0,sorteio_direcao = 0, indice = 0, caractere_na_grade = 0;
 
   //Lógica da grade
   
@@ -76,7 +76,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     for(int coluna = 0; coluna < 8; coluna ++){
       for(int linha = 0; linha < 8; linha ++){
         if(grade[coluna][linha] != '-'){
-          //Lógica para verificar caractere da palavra que será lançada na grade
+          //loop para verificar caractere da nova palavra são iguais
           for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
             //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
             if(grade[coluna][linha] == palavra[linha_da_palavra]){
@@ -90,15 +90,26 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     
   }
   if(caractere_na_grade == 0){
-
-    //Realizando o sorteio
+    //Comando para gerar número totalmente diferente do anterior
+    srand((unsigned)time(NULL));
+    //Realizando o sorteio da posição
      sorteio = rand()%8;
+    //Sorteio da direção. 0 = Horizontal; 1 = vertical.
+    sorteio_direcao = rand()%2;
+    
+    
   }
  
-  
+  if(sorteio_direcao == 1){
+    for(int i = 0; i < tamanhodapalavra; i++){
+      grade[i][sorteio] = palavra[i];
+    }
+  }else{
     for(int i = 0; i < tamanhodapalavra; i++){
       grade[sorteio][i] = palavra[i];
     }
+  }
+    
   return;
 }
 
