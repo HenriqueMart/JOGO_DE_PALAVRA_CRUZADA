@@ -125,7 +125,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
             erro_coluna = 0;
             break;
           }
-          if(linha_sorteado+i > 7){
+          if(linha_sorteado+i > 7 && k == 0){
             erro_linha = 0;
             break;
           }
@@ -150,16 +150,16 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                   erro_coluna = 0;
                 break;
               } 
-              if(linha_sorteado+i > 7){
+              if(linha_sorteado+i > 7 && k == 0){
                 erro_linha = 0;
                 break;
               }
             }
             if(erro_coluna == 1 && k == 1){
               for(int i = 0; i < tamanhodapalavra; i++){
-                if(k == 1){
+    
                   grade[sorteio][linha_sorteado+i] = palavra[i];
-                }
+                
               }
             }
           }
