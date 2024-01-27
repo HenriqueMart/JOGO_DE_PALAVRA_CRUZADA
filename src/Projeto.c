@@ -67,7 +67,10 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
   //Variável, tamanho total da palavra.
   int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0,sorteio_direcao = 0, indice = 0, caractere_na_grade = 0;
   //tentar achar um nova área disponível para colocar a palavra
-  int erro;
+  int erro_coluna, erro_linha;
+
+  //Variável para sortear linha 
+  int linha_sorteado = 0;
 
   //Lógica da grade
   
@@ -97,48 +100,72 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       srand((unsigned)time(NULL));
     do{ 
       //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
-      erro = 1;
+      erro_coluna = 1;
+      
+      
       //Realizando o sorteio da posição
        sorteio = rand()%8;
       //Sorteio da direção. 0 = Horizontal; 1 = vertical.
       sorteio_direcao = rand()%2;
-      //printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+      printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+       
 
     switch(sorteio_direcao){
       case 1:
       //Adiciona no vertical
+      do{
+      //Para não entrar em loop infinito
+      erro_linha = 1;
+      //Sorteará qual posição será colocada na linha da coluna selecionada
+      linha_sorteado = rand()%tamanhodapalavra;
+      printf("\nLinha sorteada [%d]\n", linha_sorteado);
       for(k = 0; k <= 1; k++){ 
         for(int i = 0; i < tamanhodapalavra; i++){
-          if(grade[i][sorteio] != '-' && k == 0){
-            erro = 0;
+          if(grade[linha_sorteado+i][sorteio] != '-' && k == 0){
+            erro_coluna = 0;
             break;
           }
-          if(k == 1 && erro == 1){
-            grade[i][sorteio] = palavra[i];
+          if(linha_sorteado+i > 7){
+            erro_linha = 0;
+            break;
+          }
+          if(k == 1 && erro_coluna == 1){
+            grade[linha_sorteado+i][sorteio] = palavra[i];
           }
         }
 
       }
+      }while(erro_linha != 1);
       break;
       //adiciona na horizontal
       case 0:
+        do{
+          //Para não entrar em loop infinito
+          erro_linha = 1;
+          //Sorteará qual posição será colocada na linha da coluna selecionada
+          linha_sorteado = rand()%tamanhodapalavra;
         for(k = 0; k <= 1; k++){ 
             for(int i = 0; i < tamanhodapalavra; i++){
-              if(grade[sorteio][i] != '-' && k == 0){
-                erro = 0;
+              if(grade[sorteio][linha_sorteado+i] != '-' && k == 0){
+                  erro_coluna = 0;
                 break;
               } 
+              if(linha_sorteado+i > 7){
+                erro_linha = 0;
+                break;
+              }
             }
-            if(erro == 1 && k == 1){
+            if(erro_coluna == 1 && k == 1){
               for(int i = 0; i < tamanhodapalavra; i++){
                 if(k == 1){
-                  grade[sorteio][i] = palavra[i];
+                  grade[sorteio][linha_sorteado+i] = palavra[i];
                 }
               }
             }
           }
+        }while(erro_linha != 1);
         }
-     }while(erro != 1); 
+     }while(erro_coluna != 1); 
     }
   return;
 }
