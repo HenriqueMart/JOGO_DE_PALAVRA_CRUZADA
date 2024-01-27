@@ -99,31 +99,28 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       sorteio_direcao = rand()%2;
       printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
 
-    //Adiciona no vertical
     switch(sorteio_direcao){
       case 1:
-        if(sorteio_direcao == 1){
-          for(k = 0; k <= 1; k++){ 
-            for(int i = 0; i < tamanhodapalavra; i++){
-              if(grade[i][sorteio] != '-' && k == 0){
-                printf("ERRO!\n");
-                break;
-              }
-              if(k == 1){
-                grade[i][sorteio] = palavra[i];
-              }
-            }
-
+      //Adiciona no vertical
+      for(k = 0; k <= 1; k++){ 
+        for(int i = 0; i < tamanhodapalavra; i++){
+          if(grade[i][sorteio] != '-' && k == 0){
+            printf("ERRO!\n");
+            erro = 0;
           }
-          //adiciona na horizontal
+          if(k == 1 && erro == 1){
+            grade[i][sorteio] = palavra[i];
+          }
         }
+
+      }
       break;
+      //adiciona na horizontal
       case 0:
         for(k = 0; k <= 1; k++){ 
             for(int i = 0; i < tamanhodapalavra; i++){
               if(grade[sorteio][i] != '-' && k == 0){
                 erro = 0;
-                
               } 
             }
             if(erro == 1 && k == 1){
