@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 //MENU QUE È USADO NO DECORRER DO JOGO
 int MENU(ArvBin raiz, Lista encontrados, int numPalavras, int palavrasEncontradas, int tentativa,
@@ -64,18 +65,75 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
   // Etapas Lógica para realizar o cruzamento 
   //Variável, tamanho total da palavra.
-  int tamanhodapalavra = strlen(palavra);
+  int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0,sorteio_direcao = 0, indice = 0, caractere_na_grade = 0, erro = 1;
 
   //Lógica da grade
-  //Realizando um sorteio
-
-  // Verificar se tem palavra na matriz caso não adicione a primeira
-
-  // Caso tenha adicione 
+  
   //Lógica para adicionar palavra em sequência, primeira lógica implementada.
-    for(int i = 0; i < tamanhodapalavra; i++){
-      grade[palavraencontrada][i] = palavra[i];
+
+  //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
+  if(palavraencontrada != 0){
+    for(int coluna = 0; coluna < 8; coluna ++){
+      for(int linha = 0; linha < 8; linha ++){
+        if(grade[coluna][linha] != '-'){
+          //loop para verificar caractere da nova palavra são iguais
+          for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
+            //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
+            if(grade[coluna][linha] == palavra[linha_da_palavra]){
+              printf("grade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+              break;
+            }
+          }
+        }
+      }
     }
+    
+  }
+  if(caractere_na_grade == 0){
+    int k;
+      //Comando para gerar número totalmente diferente do anterior
+      srand((unsigned)time(NULL));
+      //Realizando o sorteio da posição
+       sorteio = rand()%8;
+      //Sorteio da direção. 0 = Horizontal; 1 = vertical.
+      sorteio_direcao = rand()%2;
+      printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+
+    //Adiciona no vertical
+    switch(sorteio_direcao){
+      case 1:
+        for(k = 0; k <= 1; k++){ 
+        for(int i = 0; i < tamanhodapalavra; i++){
+          if(grade[i][sorteio] != '-' && k == 0){
+            printf("ERRO!\n");
+            break;
+          }
+          if(k == 1){
+            grade[i][sorteio] = palavra[i];
+          }
+        }
+      break;
+      case 0:
+        for(k = 0; k <= 1; k++){ 
+          for(int i = 0; i < tamanhodapalavra; i++){
+            if(grade[sorteio][i] != '-' && k == 0){
+              erro = 0;
+              break;
+            } 
+          }
+          if(erro == 1 && k == 1){
+            for(int i = 0; i < tamanhodapalavra; i++){
+              if(k == 1){
+                grade[sorteio][i] = palavra[i];
+              }  
+            }
+          }
+        }
+
+      break;
+    }
+  }
+
   return;
 }
 

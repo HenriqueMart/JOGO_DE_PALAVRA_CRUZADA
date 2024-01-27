@@ -65,7 +65,7 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
   // Etapas Lógica para realizar o cruzamento 
   //Variável, tamanho total da palavra.
-  int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0,sorteio_direcao = 0, indice = 0, caractere_na_grade = 0;
+  int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0,sorteio_direcao = 0, indice = 0, caractere_na_grade = 0, erro = 1;
 
   //Lógica da grade
   
@@ -97,41 +97,45 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
        sorteio = rand()%8;
       //Sorteio da direção. 0 = Horizontal; 1 = vertical.
       sorteio_direcao = rand()%2;
-      //printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+      printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
 
     //Adiciona no vertical
-      if(sorteio_direcao == 1){
-        for(k = 0; k <= 1; k++){ 
-          for(int i = 0; i < tamanhodapalavra; i++){
-            if(grade[i][sorteio] != '-' && k == 0){
-              //printf("ERRO!\n");
-              break;
+    switch(sorteio_direcao){
+      case 1:
+        if(sorteio_direcao == 1){
+          for(k = 0; k <= 1; k++){ 
+            for(int i = 0; i < tamanhodapalavra; i++){
+              if(grade[i][sorteio] != '-' && k == 0){
+                printf("ERRO!\n");
+                break;
+              }
+              if(k == 1){
+                grade[i][sorteio] = palavra[i];
+              }
             }
-            if(k == 1){
-              grade[i][sorteio] = palavra[i];
-            }
-          }
-          
-        }
-        //adiciona na horizontal
-      }else{
-        for(k = 0; k <= 1; k++){ 
-          for(int i = 0; i < tamanhodapalavra; i++){
-            if(grade[sorteio][i] != '-' && k == 0){
-              //printf("ERRO!\n");
-              break;
-            }
-            if(k == 1){
-            grade[sorteio][i] = palavra[i];
-            }
-          }
-        }
-        
-      }
 
+          }
+          //adiciona na horizontal
+        }
+      break;
+      case 0:
+        for(k = 0; k <= 1; k++){ 
+            for(int i = 0; i < tamanhodapalavra; i++){
+              if(grade[sorteio][i] != '-' && k == 0){
+                erro = 0;
+                
+              } 
+            }
+            if(erro == 1 && k == 1){
+              for(int i = 0; i < tamanhodapalavra; i++){
+                if(k == 1){
+                  grade[sorteio][i] = palavra[i];
+                }
+              }
+            }
+          }
+        }
     }
-   
-
   return;
 }
 
