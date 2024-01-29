@@ -1,5 +1,2 @@
-6 1 1 3
+6 4 4 3
 CASA __S_
-AVIAO A____
-QUARTO ____T_
-ESCOLA ___O__
