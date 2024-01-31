@@ -85,8 +85,8 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
           for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
             //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
             if(grade[coluna][linha] == palavra[linha_da_palavra]){
-              //printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-              break;
+              printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+              
             }
           }
         }
