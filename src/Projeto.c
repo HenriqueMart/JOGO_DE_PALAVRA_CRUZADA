@@ -4,7 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-//MENU QUE È USADO NO DECORRER DO JOGO
+//MENU QUE É USADO NO DECORRER DO JOGO
 int MENU(ArvBin raiz, Lista encontrados, int numPalavras, int palavrasEncontradas, int tentativa,
          Lista *li, int nivel) {
   int menu = 3;
@@ -72,28 +72,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
   //Variável para sortear linha 
   int linha_sorteado = 0;
 
-  //Lógica da grade
   
-  //Lógica para adicionar palavra em sequência, primeira lógica implementada.
-
-  //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
-  if(palavraencontrada != 0){
-    for(int coluna = 0; coluna < 8; coluna ++){
-      for(int linha = 0; linha < 8; linha ++){
-        if(grade[coluna][linha] != '-'){
-          //loop para verificar caractere da nova palavra são iguais
-          for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
-            //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
-            if(grade[coluna][linha] == palavra[linha_da_palavra]){
-              printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-              
-            }
-          }
-        }
-      }
-    }
-    
-  }
   if(caractere_na_grade == 0){
     int k;
       //Comando para gerar número totalmente diferente do anterior
@@ -101,7 +80,30 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     do{ 
       //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
       erro_coluna = 1;
-      
+
+      //Lógica da grade
+
+      //Lógica para adicionar palavra em sequência, primeira lógica implementada.
+
+      //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
+      if(palavraencontrada != 0){
+        for(int coluna = 0; coluna < 8; coluna ++){
+          for(int linha = 0; linha < 8; linha ++){
+            if(grade[coluna][linha] != '-'){
+              //loop para verificar caractere da nova palavra são iguais
+              for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
+                //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
+                if(grade[coluna][linha] == palavra[linha_da_palavra]){
+                  printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+                  
+
+                }
+              }
+            }
+          }
+        }
+
+      }
       
       //Realizando o sorteio da posição
        sorteio = rand()%8;
