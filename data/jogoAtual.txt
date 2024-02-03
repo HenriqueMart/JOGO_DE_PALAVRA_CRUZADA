@@ -1,2 +1,3 @@
-6 4 4 1
-AVIAO _VIA_
+6 3 3 2
+CASA C_S_
+ESCOLA E__O__
