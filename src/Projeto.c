@@ -96,7 +96,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                 //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
                 if(grade[coluna][linha] == palavra[linha_da_palavra]){
                   //lINHA PARA TESTE DE VARIÁVEL
-                  printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+                  //printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
                   /*if(grade[coluna+1][linha]  == '-' || teste_cruzamento != 1){
                     printf("vertical\n");
                     sorteio_direcao = 1;
@@ -123,7 +123,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       sorteio_direcao = rand()%2;
       
       }
-      printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+      printf("Posição da sua palavra: coluna (%d) Direção(%d)\n\n", sorteio, sorteio_direcao);
        
 
     switch(sorteio_direcao){
