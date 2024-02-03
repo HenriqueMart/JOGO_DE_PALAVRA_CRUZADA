@@ -95,21 +95,9 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
               for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
                 //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
                 if(grade[coluna][linha] == palavra[linha_da_palavra]){
-                  //printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-                  if(palavra_cruzada != 0){ 
-                  sorteio = coluna;
-                  linha_sorteado = linha;
+                  //lINHA PARA TESTE DE VARIÁVEL
+                  printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
                   
-                    if(grade[coluna+1][linha] == '-'){
-                      printf("Coluna vertical livre\n");
-                      sorteio_direcao = 1;
-                      palavra_cruzada = 0;
-                    }else if(grade[coluna][linha+1] == '-'){
-                      printf("Coluna Horizontal livre\n");
-                      sorteio_direcao = 0;
-                      palavra_cruzada = 0;
-                    }
-                  }
                 }
               }
             }
@@ -119,9 +107,12 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       }
       
       //Realizando o sorteio da posição
-       sorteio = rand()%8;
+      sorteio = rand()%8;
       //Sorteio da direção. 0 = Horizontal; 1 = vertical.
+     
       sorteio_direcao = rand()%2;
+      
+      
       //printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
        
 
@@ -132,7 +123,9 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       //Para não entrar em loop infinito
       erro_linha = 1;
       //Sorteará qual posição será colocada na linha da coluna selecionada
+
       linha_sorteado = rand()%tamanhodapalavra;
+      
       //printf("\nLinha sorteada [%d]\n", linha_sorteado);
 
       for(int k = 0; k < 2; k++){
