@@ -81,7 +81,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
       erro_coluna = 1;
 
-      int caractere_encontrada = 0, palavra_cruzada = 1; 
+      int caractere_encontrada = 0, teste_cruzamento = 0; 
       //Lógica da grade
 
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
@@ -97,7 +97,17 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                 if(grade[coluna][linha] == palavra[linha_da_palavra]){
                   //lINHA PARA TESTE DE VARIÁVEL
                   printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-                  
+                  /*if(grade[coluna+1][linha]  == '-' || teste_cruzamento != 1){
+                    printf("vertical\n");
+                    sorteio_direcao = 1;
+                    sorteio = linha_da_palavra;
+                    teste_cruzamento = 1;
+                  }else if (grade[coluna][linha+1]  == '-' || teste_cruzamento != 1){
+                    sorteio_direcao = 0;
+                    printf("horizontal\n");
+                    sorteio = linha_da_palavra;
+                    teste_cruzamento = 1;
+                  }*/
                 }
               }
             }
@@ -105,15 +115,15 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
         }
 
       }
-      
+      if(teste_cruzamento != 1){
       //Realizando o sorteio da posição
       sorteio = rand()%8;
       //Sorteio da direção. 0 = Horizontal; 1 = vertical.
      
       sorteio_direcao = rand()%2;
       
-      
-      //printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
+      }
+      printf("coluna (%d) Direção(%d)", sorteio, sorteio_direcao);
        
 
     switch(sorteio_direcao){
