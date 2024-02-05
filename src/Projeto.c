@@ -85,14 +85,15 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       //Lógica da grade
 
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
-
-      //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
+      
+      //loop para verificar caractere da nova palavra são iguais
       if(palavraencontrada != 0){
+        //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
         for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
         for(int coluna = 0; coluna < 8; coluna ++){
           for(int linha = 0; linha < 8; linha ++){
             if(grade[coluna][linha] != '-'){
-              //loop para verificar caractere da nova palavra são iguais
+              
               
                 //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
                 if(grade[coluna][linha] == palavra[linha_da_palavra]){
