@@ -88,26 +88,17 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
 
       //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
       if(palavraencontrada != 0){
+        for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
         for(int coluna = 0; coluna < 8; coluna ++){
           for(int linha = 0; linha < 8; linha ++){
             if(grade[coluna][linha] != '-'){
               //loop para verificar caractere da nova palavra são iguais
-              for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
+              
                 //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
                 if(grade[coluna][linha] == palavra[linha_da_palavra]){
                   //lINHA PARA TESTE DE VARIÁVEL
-                  //printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-                  /*if(grade[coluna+1][linha]  == '-' || teste_cruzamento != 1){
-                    printf("vertical\n");
-                    sorteio_direcao = 1;
-                    sorteio = linha_da_palavra;
-                    teste_cruzamento = 1;
-                  }else if (grade[coluna][linha+1]  == '-' || teste_cruzamento != 1){
-                    sorteio_direcao = 0;
-                    printf("horizontal\n");
-                    sorteio = linha_da_palavra;
-                    teste_cruzamento = 1;
-                  }*/
+                  printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
+                  
                 }
               }
             }
@@ -123,7 +114,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       sorteio_direcao = rand()%2;
       
       }
-      //printf("Posição da sua palavra: coluna (%d) Direção(%d)\n\n", sorteio, sorteio_direcao);
+      printf("Posição da sua palavra: coluna (%d) Direção(%d)\n\n", sorteio, sorteio_direcao);
        
 
     switch(sorteio_direcao){
