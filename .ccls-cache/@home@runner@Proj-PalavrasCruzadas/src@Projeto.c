@@ -78,14 +78,11 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       //Comando para gerar número totalmente diferente do anterior
       srand((unsigned)time(NULL));
     
-      //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
       
-
+      //Variável para o cruzamento de palavra na grade
       int caractere_encontrada = 0, cruzamento = 0, espaco_livre = 0; 
       //Lógica da grade
-
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
-      
       //loop para verificar caractere da nova palavra são iguais
       if(palavraencontrada != 0){
         //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
@@ -135,6 +132,8 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
         }
 
       }
+      //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
+
       do{ 
         erro_coluna = 1;
       //Realizando o sorteio da posição
