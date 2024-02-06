@@ -80,7 +80,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     
       
       //Variável para o cruzamento de palavra na grade
-      int caractere_encontrada = 0, cruzamento = 0, espaco_livre = 0; 
+      int caractere_encontrada = 0, cruzamento = 0, espaco_livre = 0, horizontal = 0, vertical = 0; 
       //Lógica da grade
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
       //loop para verificar caractere da nova palavra são iguais
@@ -99,9 +99,9 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                   
                   if(grade[coluna+1][linha] == '-'){
                     for(int i = tamanhodapalavra;  i > 0;  i--){ 
-                      espaco_livre ++;
+                        vertical ++;
                       //printf("espaço livre vertical\n");
-                      if(espaco_livre == tamanhodapalavra){ 
+                      if(vertical == tamanhodapalavra){ 
                           sorteio = linha;
                           linha_sorteado = coluna+1;
                           sorteio_direcao = 1;
@@ -112,13 +112,13 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                     }
                   }else if(grade[coluna][linha+1] == '-'){
                       for(int i = tamanhodapalavra;  i > 0;  i--){
-                          espaco_livre ++;
-                        //printf("espaço livre horizontal\n");
-                        if(espaco_livre == tamanhodapalavra){ 
+                          horizontal ++;
+                       // printf("espaço livre horizontal\n");
+                        if(horizontal == tamanhodapalavra){ 
                           sorteio = linha+1;
                           linha_sorteado = coluna;
                           sorteio_direcao = 0;
-                          cruzamento = 1;
+                          cruzamento = 1; 
                           printf("espaço suficiente, grade[%d][%d] \n", linha+1, sorteio);
                           break;
                         }
