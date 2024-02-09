@@ -100,31 +100,15 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                   if(grade[coluna+1][linha] == '-'){
                     for(int i = tamanhodapalavra;  i > 0;  i--){ 
                         vertical ++;
-                      //printf("espaço livre vertical\n");
-                      if(vertical == tamanhodapalavra){ 
-                          sorteio = linha;
-                          linha_sorteado = coluna+1;
-                          sorteio_direcao = 1;
-                          cruzamento = 1;
-                          printf("espaço suficiente, grade[%d][%d] \n", linha, sorteio);
-                        break;
-                      }
+                      
                     }
                   }else if(grade[coluna][linha+1] == '-'){
                       for(int i = tamanhodapalavra;  i > 0;  i--){
                           horizontal ++;
-                       // printf("espaço livre horizontal\n");
-                        if(horizontal == tamanhodapalavra){ 
-                          sorteio = linha+1;
-                          linha_sorteado = coluna;
-                          sorteio_direcao = 0;
-                          cruzamento = 1; 
-                          printf("espaço suficiente, grade[%d][%d] \n", linha+1, sorteio);
-                          break;
-                        }
+                       
+                        
                       }
                     }
-                  
                 }
               }
             }
