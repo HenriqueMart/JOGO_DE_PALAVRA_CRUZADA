@@ -80,7 +80,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
     
       
       //Variável para o cruzamento de palavra na grade
-      int caractere_encontrada = 0, cruzamento = 0, espaco_livre = 0, horizontal = 0, vertical = 1; 
+      int caractere_encontrada = 0, cruzamento = 0, espaco_livre = 0, horizontal = 1, vertical = 1; 
       //Lógica da grade
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
       //loop para verificar caractere da nova palavra são iguais
@@ -96,25 +96,32 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                 if(grade[coluna][linha] == palavra[0]){
                   //lINHA PARA TESTE DE VARIÁVEL
                   //printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-                  for(int i = tamanhodapalavra-1;  i > 0;  i--){ 
-                  if(grade[coluna+1][linha] == '-'){
+          
+                  if(grade[coluna+1][linha] == '-' && cruzamento != 1){
                         vertical ++;
-                      if(vertical == tamanhodapalavra){ 
-                         for(int i = 1; i < tamanhodapalavra; i++){
-                           grade[coluna+i][linha] = palavra[i];
-                           printf("Cruzamento realizado Grade[%d][%d]\n", coluna+i, linha);
-                           cruzamento = 1;
+                      if(vertical == tamanhodapalavra && (coluna + (tamanhodapalavra-1) <= 7)){ 
+                         for(int k = 1; k < tamanhodapalavra; k++){
+                           
+                           grade[coluna+k][linha] = palavra[k];
+                           printf("Cruzamento realizado Grade vertical [%d][%d]\n", coluna+k, linha); 
                          }
+                        cruzamento = 1;
                       }
-                    }else if(grade[coluna][linha+1] == '-'){
-                  
-                      for(int i = tamanhodapalavra;  i > 0;  i--){
-                          horizontal ++;
-                       
-                        
-                      }
+                    }else if(grade[coluna][linha+1] == '-' && cruzamento != 1){
+                      
+                        horizontal ++;
+                        if(horizontal == tamanhodapalavra && (linha + (tamanhodapalavra-1) <= 7)){
+                          for(int k = 1; k < tamanhodapalavra; k++){
+                            
+                            grade[coluna][linha+k] = palavra[k];
+                            printf("Cruzamento realizado Grade na horizontal[%d][%d]\n", coluna, linha+k);                   
+                          }
+                          cruzamento = 1;
+                        }
+                      
+                    
                     }
-                  }
+                  
                 }
               }
             }

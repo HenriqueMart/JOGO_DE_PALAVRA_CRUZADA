@@ -102,17 +102,24 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                       if(vertical == tamanhodapalavra){ 
                          for(int i = 1; i < tamanhodapalavra; i++){
                            grade[coluna+i][linha] = palavra[i];
-                           printf("Cruzamento realizado Grade[%d][%d]\n", coluna+i, linha);
+                           printf("Cruzamento realizado Grade horizontal [%d][%d]\n", coluna+i, linha);
                            cruzamento = 1;
                          }
                       }
                     }else if(grade[coluna][linha+1] == '-'){
-                  
-                      for(int i = tamanhodapalavra;  i > 0;  i--){
-                          horizontal ++;
-                       
-                        
+
+                      for(int i = tamanhodapalavra-1;  i > 0;  i--){
+                        if(grade[coluna][linha+1] == '-'){
+                        horizontal ++;
+                        if(horizontal == tamanhodapalavra){
+                          for(int i = 1; i < tamanhodapalavra; i++){
+                            grade[coluna][linha+1] = palavra[i];
+                            printf("Cruzamento realizado Grade na [%d][%d]\n", coluna+i, linha);
+                            cruzamento = 1;
+                          }
+                        }
                       }
+                    }
                     }
                   }
                 }
