@@ -63,74 +63,69 @@ void iniciarlizargrade(char grade[][COLUNAS]){
 //FUNCAO QUE JOGA AS PALAVRAS QUE FORAM ENCONTRADAS NA GRADE
 //MODIFICAÇÕES NECESSÁRIAS PARA PODEMOS REALIZAR O CRUAMENTO DE PALAVRA CRUZADAS
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
-  // Etapas Lógica para realizar o cruzamento 
+  //Etapas Lógica para realizar o cruzamento.
   //Variável, tamanho total da palavra.
   int tamanhodapalavra = strlen(palavra), num_sorteado[7],sorteio = 0,sorteio_direcao = 0, indice = 0, caractere_na_grade = 0;
-  //tentar achar um nova área disponível para colocar a palavra
+  //tentar achar um nova área disponível para colocar a palavra.
   int erro_coluna, erro_linha;
 
-  //Variável para sortear linha 
+  //Variável para sortear linha.
   int linha_sorteado = 0;
 
   
   if(caractere_na_grade == 0){
     int k;
-      //Comando para gerar número totalmente diferente do anterior
+      //Comando para gerar número totalmente diferente do anterior;
       srand((unsigned)time(NULL));
-    
-      
-      //Variável para o cruzamento de palavra na grade
-      int caractere_encontrada = 0, cruzamento = 0, espaco_livre = 0, horizontal = 0, vertical = 1; 
+      //Variável para o cruzamento de palavra na grade;
+      int cruzamento = 0, horizontal = 1, vertical = 1; 
       //Lógica da grade
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
-      //loop para verificar caractere da nova palavra são iguais
+      //loop para verificar caractere da nova palavra são iguais;
       if(palavraencontrada != 0){
-        //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira
-        
+        //lógica para procurar todas as palavras da grade, e comparar suas caractere, Verificar se tem palavra na matriz caso não adicione a primeira;
         for(int coluna = 0; coluna < 8; coluna ++){
           for(int linha = 0; linha < 8; linha ++){
             if(grade[coluna][linha] != '-'){
               for(int linha_da_palavra = 0; linha_da_palavra < tamanhodapalavra; linha_da_palavra++){
               
-                //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade
+                //essa condição estar verificando todas as caractere que são iguais da nova palavra que estará indo na grade;
                 if(grade[coluna][linha] == palavra[0]){
-                  //lINHA PARA TESTE DE VARIÁVEL
+                  //lINHA PARA TESTE DE VARIÁVEL;
                   //printf("\ngrade[%d][%d], CARACTERE[%c]\n", coluna, linha, grade[coluna][linha]);
-                  for(int i = tamanhodapalavra-1;  i > 0;  i--){ 
-                  if(grade[coluna+1][linha] == '-'){
+                  
+                  //Essa condição estará verificando ser a grade tem espaço livre e ser o cruzamento dessa palavra já foi feito anteriormente;
+                  if(grade[coluna+1][linha] == '-' && cruzamento != 1){
+                        //incrementa mais 1 para cada espaço achado
                         vertical ++;
-                      if(vertical == tamanhodapalavra){ 
-                         for(int i = 1; i < tamanhodapalavra; i++){
-                           grade[coluna+i][linha] = palavra[i];
-                           printf("Cruzamento realizado Grade horizontal [%d][%d]\n", coluna+i, linha);
-                           cruzamento = 1;
+                      //Verifica ser encontrou espaço suficiente && se a coluna não ultrapassar 7 coluna ou linha, pois é o limite da matriz 
+                      if(vertical == tamanhodapalavra && (coluna + (tamanhodapalavra-1) <= 7)){ 
+                         for(int k = 1; k < tamanhodapalavra; k++){//Adicionado na grade
+                           grade[coluna+k][linha] = palavra[k];
+                           //printf("Cruzamento realizado Grade vertical [%d][%d]\n", coluna+k, linha); 
                          }
+                        cruzamento = 1; //Verificador se foi possível fazer o cruzamento para não sortear um número
                       }
-                    }else if(grade[coluna][linha+1] == '-'){
-
-                      for(int i = tamanhodapalavra-1;  i > 0;  i--){
-                        if(grade[coluna][linha+1] == '-'){
+                    //mesma lógica mais na horizontal
+                    }else if(grade[coluna][linha+1] == '-' && cruzamento != 1){
                         horizontal ++;
-                        if(horizontal == tamanhodapalavra){
-                          for(int i = 1; i < tamanhodapalavra; i++){
-                            grade[coluna][linha+1] = palavra[i];
-                            printf("Cruzamento realizado Grade na [%d][%d]\n", coluna+i, linha);
-                            cruzamento = 1;
+                        if(horizontal == tamanhodapalavra && (linha + (tamanhodapalavra-1) <= 7)){
+                          for(int k = 1; k < tamanhodapalavra; k++){
+                            grade[coluna][linha+k] = palavra[k];
+                            //printf("Cruzamento realizado Grade na horizontal[%d][%d]\n", coluna, linha+k);
                           }
-                        }
-                      }
-                    }
-                    }
-                  }
+                          cruzamento = 1;
+                        }                    
+                    }  
                 }
               }
             }
           }
         }
-
       }
-      //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
+      //Verificar se foi possível colocar a palavra cruzada na grade, se sim não precisa sortear um número aleatório para colocar
       if(cruzamento != 1){ 
+      //Para não entrar em um loop infinito, quando tentar achar um nova área disponível para colocar a palavra
       do{ 
         erro_coluna = 1;
       //Realizando o sorteio da posição
