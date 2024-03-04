@@ -78,7 +78,7 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
       //Comando para gerar número totalmente diferente do anterior;
       srand((unsigned)time(NULL));
       //Variável para o cruzamento de palavra na grade, para horizontal e contra-horizontal para ser a variável que será adicionada caso a palavra seja igual o espaço disponível na grade;
-      int cruzamento = 0, horizontal = 1, contra_horizontal = 1, vertical = 1, contravertical = 1,  ultimapalavra = strlen(palavra); 
+      int cruzamento = 0, horizontal = 1, contra_horizontal = 1, vertical = 1, contravertical = 1; 
       //Lógica da grade
       //Lógica para adicionar palavra em sequência, primeira lógica implementada.
       //loop para verificar caractere da nova palavra são iguais;
@@ -118,8 +118,17 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                         }                    
                     }  
                   //Realizando a lógica de cruzar a palavra de formar inversa
-                }else if(grade[coluna][linha] == palavra[ultimapalavra-1]){
-                  printf("\n-\nFuncionou [%c]\n-\n\n", grade[coluna][linha]);
+                }else if(grade[coluna][linha] == palavra[tamanhodapalavra-1]){
+                  //Para verificar ser os espaços da colunas anteriores estão livres e o cruzamento já foi realizado;
+                    if(grade[coluna-1][linha] == '-' && cruzamento != 1){
+                      //incrementa mais 1 caso ache espaço na coluna;
+                      contravertical ++;
+                      printf("\n-\nFuncionou [%c]\n-\n\n", grade[coluna][linha]);
+                      if(contravertical == tamanhodapalavra && (coluna - (tamanhodapalavra-1) <= 7)){
+                       
+                      //printf("Cruzamento realizado Grade vertical [%d][%d]\n", coluna-k, linha); 
+                      }
+                    }
                 }
               }
             }
