@@ -123,8 +123,9 @@ void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencon
                     if(grade[coluna-1][linha] == '-' && cruzamento != 1){
                       //incrementa mais 1 caso ache espaço na coluna;
                       contravertical ++;
-                      printf("\n-\nFuncionou [%c]\n-\n\n", grade[coluna][linha]);
-                      if(contravertical == tamanhodapalavra && (coluna - (tamanhodapalavra-1) <= 7)){
+                      //printf("\n-\nFuncionou [%c]\n-\n\n", grade[coluna][linha]);
+                      /*Essa condição verificará ser a contravertical tem espaço vazia e coluna menos o total de palavra não utrapasse 7 - será avaliado essa condição*/
+                      if(contravertical == tamanhodapalavra && (coluna - (tamanhodapalavra-1) <= 7)){//
                        
                       //printf("Cruzamento realizado Grade vertical [%d][%d]\n", coluna-k, linha); 
                       }
