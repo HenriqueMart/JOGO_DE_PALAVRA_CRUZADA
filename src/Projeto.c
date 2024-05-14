@@ -60,6 +60,12 @@ void iniciarlizargrade(char grade[][COLUNAS]){
   }
 }
 
+/*
+---
+Mantive a função mais de 150 linhas kkk, para preservar o conhecimento que tinha na época de criação, para futuramente realizar um comparativo desse projeto com meu progresso atualmente.
+---
+*/
+
 //FUNCAO QUE JOGA AS PALAVRAS QUE FORAM ENCONTRADAS NA GRADE
 //MODIFICAÇÕES NECESSÁRIAS PARA PODEMOS REALIZAR O CRUAMENTO DE PALAVRA CRUZADAS
 void jogarPalavraNaGrade(char palavra[], char grade[][COLUNAS], int palavraencontrada){
