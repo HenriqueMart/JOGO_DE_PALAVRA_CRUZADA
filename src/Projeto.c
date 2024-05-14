@@ -553,7 +553,7 @@ void imprime_lista(Lista *li) {
     printf("Palavra: %s\n", no->dados.palavra);
     printf("Dica: %s\n", no->dados.dica);
     printf("-------------------------------\n");
-
+      
     no = no->prox;
   }
 }
