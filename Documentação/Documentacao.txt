@@ -1,10 +1,6 @@
-1 - Explicação do projeto
+1 - ##Explicação do projeto
   Esse projeto foi desenvolvido para a faculdade na disciplina de estrutura de dados. Utilizamos árvore para guardar as palavras, struct para armazenar conjunto de dados. Pilha para escolher a ordem de colocar na grade. 
   
-2 - Desafios enfrentado no desenvolvimento
+2 - ##Desafios enfrentado no desenvolvimento
   Vários. Entretanto, o mais desafiador foi montar a grade pegando o dado da árvore, para conseguir ter uma boa ordem de palavra na tabela visível durante o jogo. Aprendi demais com esse processo e tive bastante estresse também kkkk. A grade foi 90% desenvolvida logicamente, tentei usar IA para ajudar nesse processo, mas infelizmente ela não ajudou tanto (Podemos dizer que atrapalhou às vezes ;-;).
   
-3 - Etapas de melhoria Melhorias
-  3.1 Grade
-    Lógica para o cruzamento das palavras que foram descoberto pelo usuário - ok
-    
