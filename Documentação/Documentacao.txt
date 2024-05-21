@@ -2,20 +2,9 @@
   Esse projeto foi desenvolvido para a faculdade na disciplina de estrutura de dados. Utilizamos árvore para guardar as palavras, struct para armazenar conjunto de dados. Pilha para escolher a ordem de colocar na grade. 
   
 2 - Desafios enfrentado no desenvolvimento
-  Vários. Entretanto, o mais desafiador foi montar a grade pegando o dado da árvore, para conseguir ter uma boa ordem de palavra na tabela visível durante o jogo. Aprendi demais com esse processo e tive bastante estresse também kkkk. A grade foi 90% desenvolvida logicamente, tentei usar IA para ajudar nesse processo, mas infelizmente ela não ajudou tanto (Pode dizer que atrapalhou às vezes ;-;).
+  Vários. Entretanto, o mais desafiador foi montar a grade pegando o dado da árvore, para conseguir ter uma boa ordem de palavra na tabela visível durante o jogo. Aprendi demais com esse processo e tive bastante estresse também kkkk. A grade foi 90% desenvolvida logicamente, tentei usar IA para ajudar nesse processo, mas infelizmente ela não ajudou tanto (Podemos dizer que atrapalhou às vezes ;-;).
   
 3 - Etapas de melhoria Melhorias
   3.1 Grade
     Lógica para o cruzamento das palavras que foram descoberto pelo usuário - ok
     
-  3.2 Melhoria na instrução ao usuário
-
-  3.3 Melhoria nas dicas dados ao usuário
-
-  3.4 Refatoramento do código
-    eliminando comentário e tudo que não estar sendo utilizado.
-
-  3.5 Criação de uma página no github ou no próprio projeto
-    explicando o jogo detalhadamente, como jogar e como utilizar a IDE ONLINE, etc...
-
-  4 - Problema no tratamento de dados na escola do nível do jogo
