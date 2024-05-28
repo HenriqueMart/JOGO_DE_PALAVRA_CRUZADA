@@ -10,3 +10,16 @@
 <li>Para Carregar progresso salva do jogo. Essa função permitir que o usuário volta aonde parou para continuar o jogo.</li>
 <p>Ele permitir que o usuário possa sair do jogo sem perder os dados . Assim quando ele entrar no jogo poderá voltar aonde parou.</p>
 </ul>
+
+<h1>Como Utilizar</h1>
+<ul></ul>
+<li>Requisito</li>
+<li>Navegador da sua preferência<br>Acesso a Internet</li>
+</ul>
+<ol>
+  <li>Utiliza o link de acesso: <a href='https://replit.com/@Jose-Henrique30/Proj-PalavrasCruzadas?v=1' target="_black"><b>Projeto<b></li>
+</ol>
+
+![Linguagem mais utilizada](https://img.shields.io/github/languages/top/HenriqueMart/JOGO_DE_PALAVRA_CRUZADA)
+![Último commit](https://img.shields.io/github/last-commit/HenriqueMart/JOGO_DE_PALAVRA_CRUZADA)
+
