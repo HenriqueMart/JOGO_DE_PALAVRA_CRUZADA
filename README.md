@@ -13,12 +13,19 @@
 
 <h1>Como Utilizar</h1>
 <ul></ul>
-<li>Requisito</li>
+<h3>Requisito</h3>
 <li>Navegador da sua preferência<br>Acesso a Internet</li>
 </ul>
-<ol>
-  <li>Utiliza o link de acesso: <a href='https://replit.com/@Jose-Henrique30/Proj-PalavrasCruzadas?v=1' target="_black"><b>Projeto<b></li>
-</ol>
+
+  <p>Utiliza o link de acesso: <a href='https://replit.com/@Jose-Henrique30/Proj-PalavrasCruzadas?v=1' target="_black"><b>Projeto<b></p>
+  <ul>
+    <li>Entrando no site hospedado o projeto</li>
+    <li>Clica em "FORK"</li>
+    <li>Caso não tenha uma conta será necessário criar</li>
+    <li>Apois ser criado será levado para outra página</li>
+    <li>Clica no botão "RUN"</li>
+    <li>Será Iniciado o Jogo na barra ao lado esquerdo</li>
+  </ul>
 
 ![Linguagem mais utilizada](https://img.shields.io/github/languages/top/HenriqueMart/JOGO_DE_PALAVRA_CRUZADA)
 ![Último commit](https://img.shields.io/github/last-commit/HenriqueMart/JOGO_DE_PALAVRA_CRUZADA)
